@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishravars - Personal Blog</title>
+    <title>The Writings of Vishravars</title>
     <!-- Google Fonts for English and Tamil -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             /* Light Theme Palette */
@@ -18,7 +21,7 @@
             --accent-color: #2563eb;
             --accent-hover: #1d4ed8;
             --border-color: #e5e7eb;
-            
+
             /* Typography */
             --font-sans: 'Inter', 'Noto Sans Tamil', sans-serif;
             --font-serif: 'Noto Serif Tamil', serif;
@@ -175,25 +178,33 @@
             main {
                 padding: 2rem 1rem;
             }
+
             .nav-container {
                 padding: 1rem;
             }
+
             article {
                 padding: 1.5rem;
             }
+
             .article-title {
                 font-size: 1.5rem;
             }
+
             .article-content {
                 font-size: 1rem;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="nav-container">
             <a href="index.html" class="brand-name">Vishravars</a>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="rss.xml" class="brand-name" style="font-size: 1rem; color: var(--text-secondary);" title="RSS Feed"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 3v-1a2 2 0 10-4 0v1h4z"></path></svg></a>
+            </div>
         </nav>
     </header>
 
@@ -213,17 +224,17 @@
                 const title = this.getAttribute('title');
                 const date = this.getAttribute('date');
                 const lang = this.getAttribute('lang') || 'en';
-                
+
                 try {
                     const response = await fetch(src);
                     if (!response.ok) throw new Error('Network response was not ok');
                     const text = await response.text();
-                    
+
                     // Limit preview to just a few lines of text (approx 250 characters)
                     const plainText = text.replace(/\n+/g, ' ').trim();
                     const previewText = plainText.length > 250 ? plainText.substring(0, 250).trim() + '...' : plainText;
                     const paragraphs = `<p>${previewText}</p>`;
-                    
+
                     const postId = this.getAttribute('id') || src.replace(/\.txt$/, '');
                     const postUrl = `post.html?post=${encodeURIComponent(postId)}`;
                     this.innerHTML = `
@@ -253,4 +264,5 @@
         customElements.define('blog-post', BlogPost);
     </script>
 </body>
+
 </html>
