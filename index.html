@@ -199,7 +199,7 @@
 
     <main>
         <!-- Use the blog-post custom element to load posts from modular txt files -->
-        <blog-post src="vilayattu.txt" title="விளையாட்டு" date="July 1, 2026" lang="ta"></blog-post>
+        <blog-post id="0001" src="vilayattu.txt" title="விளையாட்டு" date="July 1, 2026" lang="ta"></blog-post>
     </main>
 
     <footer>
@@ -224,7 +224,8 @@
                     const previewText = plainText.length > 250 ? plainText.substring(0, 250).trim() + '...' : plainText;
                     const paragraphs = `<p>${previewText}</p>`;
                     
-                    const postUrl = `post.html?file=${encodeURIComponent(src)}&title=${encodeURIComponent(title)}&date=${encodeURIComponent(date)}&lang=${lang}`;
+                    const postId = this.getAttribute('id') || src.replace(/\.txt$/, '');
+                    const postUrl = `post.html?post=${encodeURIComponent(postId)}`;
                     this.innerHTML = `
                         <article>
                             <time class="article-meta">${date}</time>

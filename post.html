@@ -160,21 +160,52 @@
     <script>
         async function loadPost() {
             const params = new URLSearchParams(window.location.search);
-            const src = params.get('file');
-            const title = params.get('title');
-            const date = params.get('date');
-            const lang = params.get('lang') || 'en';
+            const postId = params.get('post') || (params.get('file') ? params.get('file').replace(/\.txt$/, '') : null);
+            let src = postId ? `${postId}.txt` : null;
 
+            let title = params.get('title') || "Untitled";
+            let date = params.get('date') || "";
+            let lang = params.get('lang') || 'en';
+
+            if (!postId) {
+                document.getElementById('post-title').innerText = "Post not found";
+                document.getElementById('post-date').style.display = 'none';
+                return;
+            }
+
+            // Dynamically fetch metadata from index.html if we are using the clean URL
+            if (params.get('post') && !params.get('title')) {
+                try {
+                    const indexRes = await fetch('index.html');
+                    if (indexRes.ok) {
+                        const indexText = await indexRes.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(indexText, 'text/html');
+                        // Find the post either by its custom ID or its filename
+                        const meta = doc.querySelector(`blog-post[id="${postId}"]`) || doc.querySelector(`blog-post[src="${postId}.txt"]`);
+                        if (meta) {
+                            src = meta.getAttribute('src');
+                            title = meta.getAttribute('title') || title;
+                            date = meta.getAttribute('date') || date;
+                            lang = meta.getAttribute('lang') || lang;
+                        }
+                    }
+                } catch (e) {
+                    console.warn("Could not load metadata from index.html", e);
+                }
+            }
+            
             if (!src) {
                 document.getElementById('post-title').innerText = "Post not found";
                 document.getElementById('post-date').style.display = 'none';
                 return;
             }
 
-            document.getElementById('post-title').innerText = title || "Untitled";
+            document.getElementById('post-title').innerText = title;
             document.getElementById('post-title').lang = lang;
-            document.getElementById('post-date').innerText = date || "";
+            document.getElementById('post-date').innerText = date;
             if (!date) document.getElementById('post-date').style.display = 'none';
+            else document.getElementById('post-date').style.display = 'inline-block';
             document.getElementById('post-content').lang = lang;
 
             try {
