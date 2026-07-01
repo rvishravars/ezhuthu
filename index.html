@@ -3,35 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World Page</title>
+    <title>Vishravars - Personal Blog</title>
+    <!-- Google Fonts for English and Tamil -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        :root {
+            /* Light Theme Palette */
+            --bg-color: #f9fafb;
+            --surface-color: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border-color: #e5e7eb;
+            
+            /* Typography */
+            --font-sans: 'Inter', 'Noto Sans Tamil', sans-serif;
+            --font-serif: 'Noto Serif Tamil', serif;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            padding: 0;
         }
-        .container {
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Top Navigation Bar */
+        header {
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .brand-name:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Single-Column Content */
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            min-height: calc(100vh - 160px);
+        }
+
+        article {
+            background-color: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        article:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            border-color: var(--border-color);
+        }
+
+        .article-meta {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        .article-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        .article-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .article-title a:hover {
+            color: var(--accent-color);
+        }
+
+        .article-content {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+        }
+
+        /* Tamil specific typographic adjustment */
+        .article-content[lang="ta"] {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .read-more:hover {
+            color: var(--accent-hover);
+        }
+
+        .read-more svg {
+            margin-left: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .read-more:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
             text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--surface-color);
         }
-        h1 {
-            color: #0066cc;
-            margin: 0 0 10px 0;
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            main {
+                padding: 2rem 1rem;
+            }
+            .nav-container {
+                padding: 1rem;
+            }
+            article {
+                padding: 1.5rem;
+            }
+            .article-title {
+                font-size: 1.5rem;
+            }
+            .article-content {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello World</h1>
-        <p>Welcome to your new webpage!</p>
-    </div>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="brand-name">Vishravars</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Use the blog-post custom element to load posts from modular txt files -->
+        <blog-post src="vilayattu.txt" title="விளையாட்டு" date="July 1, 2026" lang="ta"></blog-post>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vishravars. All rights reserved.</p>
+    </footer>
+    <!-- Script to dynamically load modular posts -->
+    <script>
+        class BlogPost extends HTMLElement {
+            async connectedCallback() {
+                const src = this.getAttribute('src');
+                const title = this.getAttribute('title');
+                const date = this.getAttribute('date');
+                const lang = this.getAttribute('lang') || 'en';
+                
+                try {
+                    const response = await fetch(src);
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    const text = await response.text();
+                    
+                    // Limit preview to just a few lines of text (approx 250 characters)
+                    const plainText = text.replace(/\n+/g, ' ').trim();
+                    const previewText = plainText.length > 250 ? plainText.substring(0, 250).trim() + '...' : plainText;
+                    const paragraphs = `<p>${previewText}</p>`;
+                    
+                    const postUrl = `post.html?file=${encodeURIComponent(src)}&title=${encodeURIComponent(title)}&date=${encodeURIComponent(date)}&lang=${lang}`;
+                    this.innerHTML = `
+                        <article>
+                            <time class="article-meta">${date}</time>
+                            <h2 class="article-title" lang="${lang}"><a href="${postUrl}">${title}</a></h2>
+                            <div class="article-content" lang="${lang}">
+                                ${paragraphs}
+                            </div>
+                            <a href="${postUrl}" class="read-more">Read article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+                        </article>
+                    `;
+                } catch (error) {
+                    this.innerHTML = `
+                        <article>
+                            <time class="article-meta">${date}</time>
+                            <h2 class="article-title"><a href="#">${title}</a></h2>
+                            <div class="article-content">
+                                <p style="color: red;">Error loading post: ${src}. Note: Because this uses modular loading (fetch), please run a local web server (e.g. 'python3 -m http.server' or 'npx serve') to view the content.</p>
+                            </div>
+                        </article>
+                    `;
+                    console.error('Error loading post:', error);
+                }
+            }
+        }
+        customElements.define('blog-post', BlogPost);
+    </script>
 </body>
 </html>

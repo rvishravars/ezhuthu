@@ -1,0 +1,4 @@
+start_server.sh
+.DS_Store
+.vercel/
+node_modules/
