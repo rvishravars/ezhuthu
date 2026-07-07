@@ -1,0 +1,16 @@
+[
+  {
+    "id": "seyarkkai-arivu",
+    "title": "செயற்கை அறிவு",
+    "date": "July 6, 2026",
+    "lang": "ta",
+    "src": "seyarkkai_arivu.txt"
+  },
+  {
+    "id": "vilayattu",
+    "title": "விளையாட்டு",
+    "date": "July 1, 2026",
+    "lang": "ta",
+    "src": "vilayattu.txt"
+  }
+]

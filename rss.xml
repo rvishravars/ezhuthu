@@ -6,13 +6,13 @@
     <description>Personal blog of Vishravars.</description>
     <item>
         <title>செயற்கை அறிவு</title>
-        <link>https://www.vishravars.me/post.html?post=0002</link>
+        <link>https://www.vishravars.me/posts/seyarkkai-arivu/</link>
         <description>செயற்கை அறிவு குறித்த ஒரு கட்டுரை.</description>
         <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
     </item>
     <item>
         <title>விளையாட்டு</title>
-        <link>https://www.vishravars.me/post.html?post=0001</link>
+        <link>https://www.vishravars.me/posts/vilayattu/</link>
         <description>விளையாட்டு குறித்த ஒரு கட்டுரை.</description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
     </item>
