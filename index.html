@@ -257,7 +257,17 @@
                     const postUrl = `post.html?post=${encodeURIComponent(postId)}`;
                     
                     let translateHtml = '';
-                    if (lang !== 'en') {
+                    const isTranslated = window.location.hostname.includes('translate.goog');
+                    
+                    if (isTranslated) {
+                        const originalUrl = new URL(postUrl, 'https://www.vishravars.me').href;
+                        translateHtml = `
+                            <a href="${originalUrl}" target="_top" class="translate-link">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
+                                View Original (Tamil)
+                            </a>
+                        `;
+                    } else if (lang !== 'en') {
                         const livePostUrl = new URL(postUrl, 'https://www.vishravars.me').href;
                         const translateUrl = `https://translate.google.com/translate?sl=${lang}&tl=en&u=${encodeURIComponent(livePostUrl)}`;
                         translateHtml = `

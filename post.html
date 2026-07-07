@@ -272,11 +272,34 @@
                 readTimeEl.innerText = `${readingTime} min read`;
                 readTimeEl.style.display = 'inline-block';
                 
-                // Configure Google Translate link for non-English posts
+                // Configure Google Translate link or Original link
                 const translateEl = document.getElementById('translate-link');
-                if (lang !== 'en') {
+                const isTranslated = window.location.hostname.includes('translate.goog');
+                
+                if (isTranslated) {
+                    const originalUrl = new URL(window.location.href);
+                    originalUrl.hostname = 'www.vishravars.me';
+                    const cleanParams = new URLSearchParams(originalUrl.search);
+                    for (const key of [...cleanParams.keys()]) {
+                        if (key.startsWith('_x_tr_')) cleanParams.delete(key);
+                    }
+                    originalUrl.search = cleanParams.toString();
+                    
+                    translateEl.href = originalUrl.toString();
+                    translateEl.target = '_top'; // Escape iframe/proxy
+                    translateEl.innerHTML = `
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
+                        View Original (Tamil)
+                    `;
+                    translateEl.style.display = 'inline-flex';
+                } else if (lang !== 'en') {
                     const liveUrl = window.location.href.replace(window.location.origin, 'https://www.vishravars.me');
                     translateEl.href = `https://translate.google.com/translate?sl=${lang}&tl=en&u=${encodeURIComponent(liveUrl)}`;
+                    translateEl.target = '_blank';
+                    translateEl.innerHTML = `
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
+                        Translate to English
+                    `;
                     translateEl.style.display = 'inline-flex';
                 } else {
                     translateEl.style.display = 'none';
