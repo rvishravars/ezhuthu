@@ -163,6 +163,21 @@
             transform: translateX(4px);
         }
 
+        .translate-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .translate-link:hover {
+            color: var(--accent-hover);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -240,6 +255,19 @@
 
                     const postId = this.getAttribute('id') || src.replace(/\.txt$/, '');
                     const postUrl = `post.html?post=${encodeURIComponent(postId)}`;
+                    
+                    let translateHtml = '';
+                    if (lang !== 'en') {
+                        const livePostUrl = new URL(postUrl, 'https://www.vishravars.me').href;
+                        const translateUrl = `https://translate.google.com/translate?sl=${lang}&tl=en&u=${encodeURIComponent(livePostUrl)}`;
+                        translateHtml = `
+                            <a href="${translateUrl}" target="_blank" class="translate-link">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
+                                Translate to English
+                            </a>
+                        `;
+                    }
+
                     this.innerHTML = `
                         <article>
                             <time class="article-meta">${date}</time>
@@ -247,7 +275,10 @@
                             <div class="article-content" lang="${lang}">
                                 ${paragraphs}
                             </div>
-                            <a href="${postUrl}" class="read-more">Read article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+                            <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                                <a href="${postUrl}" class="read-more">Read article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+                                ${translateHtml}
+                            </div>
                         </article>
                     `;
                 } catch (error) {
