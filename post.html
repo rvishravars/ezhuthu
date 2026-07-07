@@ -97,6 +97,26 @@
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
         }
+        .post-meta-separator {
+            border-left: 2px solid var(--border-color);
+            padding-left: 1rem;
+        }
+        .translate-link {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.5rem;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .translate-link:hover {
+            color: var(--accent-hover);
+            border-bottom-color: var(--accent-hover);
+        }
 
         /* Content Styling */
         .post-content {
@@ -126,7 +146,8 @@
             .nav-container, main { width: 100%; }
             main { padding: 2.5rem 1.5rem; }
             .post-header { margin-bottom: 2.5rem; text-align: left; }
-            .post-meta { border-bottom: none; border-left: 3px solid var(--accent-color); padding-left: 0.75rem; padding-bottom: 0; }
+            .post-meta, .translate-link { border-bottom: none; border-left: 3px solid var(--accent-color); padding-left: 0.75rem; padding-bottom: 0; }
+            .post-meta-separator { border-left: none; padding-left: 0; }
             .post-content { font-size: 1.15rem; }
             .post-content[lang="ta"] { font-size: 1.2rem; }
         }
@@ -152,7 +173,11 @@
             <h1 class="post-title" id="post-title">Loading...</h1>
             <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
                 <time class="post-meta" id="post-date"></time>
-                <span class="post-meta" id="read-time" style="border-left: 2px solid var(--border-color); padding-left: 1rem; display: none;"></span>
+                <span class="post-meta post-meta-separator" id="read-time" style="display: none;"></span>
+                <a id="translate-link" href="#" target="_blank" class="translate-link post-meta-separator" style="display: none;">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
+                    Translate to English
+                </a>
             </div>
         </div>
         <div class="post-content" id="post-content">
@@ -246,6 +271,16 @@
                 const readTimeEl = document.getElementById('read-time');
                 readTimeEl.innerText = `${readingTime} min read`;
                 readTimeEl.style.display = 'inline-block';
+                
+                // Configure Google Translate link for non-English posts
+                const translateEl = document.getElementById('translate-link');
+                if (lang !== 'en') {
+                    const liveUrl = window.location.href.replace(window.location.origin, 'https://www.vishravars.me');
+                    translateEl.href = `https://translate.google.com/translate?sl=${lang}&tl=en&u=${encodeURIComponent(liveUrl)}`;
+                    translateEl.style.display = 'inline-flex';
+                } else {
+                    translateEl.style.display = 'none';
+                }
                 
                 // Set up share links
                 const shareUrl = encodeURIComponent(window.location.href);
