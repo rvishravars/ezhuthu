@@ -28,6 +28,21 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
+
+        .banner-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         header {
             border-bottom: 1px solid var(--border-color);
             position: sticky;
@@ -154,6 +169,9 @@
     </style>
 </head>
 <body>
+    <div class="banner-container">
+        <img src="banner.png" alt="Vishravars Blog Banner" class="header-banner">
+    </div>
     <header>
         <nav class="nav-container">
             <a href="index.html" class="brand-name">Vishravars</a>
