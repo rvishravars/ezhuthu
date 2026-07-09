@@ -19,6 +19,11 @@ def format_rfc822_date(date_str):
         # Fallback to current time RFC822 if parse fails
         return datetime.datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
 
+def linkify(text):
+    # Regex to find http/https URLs, ignoring trailing punctuation like periods or commas
+    pattern = r'(https?://[^\s<>"]+?)(?=[.,;:!?]?(?:\s|$))'
+    return re.sub(pattern, r'<a href="\1" target="_blank">\1</a>', text)
+
 def main():
     # Load posts metadata
     posts_json_path = os.path.join(BASE_DIR, 'posts.json')
@@ -60,6 +65,7 @@ def main():
         for p in paragraphs_raw:
             if p.strip():
                 p_formatted = p.replace('\n', '<br>')
+                p_formatted = linkify(p_formatted)
                 paragraphs.append(f"<p>{p_formatted}</p>")
         content_html = "".join(paragraphs)
 
