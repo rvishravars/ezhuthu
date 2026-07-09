@@ -46,7 +46,7 @@ def main():
         src_file = post['src']
         
         # Read post text content
-        src_path = os.path.join(BASE_DIR, src_file)
+        src_path = os.path.join(BASE_DIR, 'raw_posts', src_file)
         if not os.path.exists(src_path):
             print(f"Error: Source file {src_path} not found for post {post_id}")
             continue
@@ -91,11 +91,19 @@ def main():
 
         # Populate post page template
         post_html = post_template
+        
+        # Render featured image if present
+        featured_image_html = ""
+        if post.get('image'):
+            img_name = post['image']
+            featured_image_html = f'<div class="featured-image-container" style="text-align: center; margin-bottom: 2.5rem;"><img src="/images/{img_name}" alt="{title}" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>'
+
         post_html = post_html.replace('{{TITLE}}', title)
         post_html = post_html.replace('{{DATE}}', date_str)
         post_html = post_html.replace('{{LANG}}', lang)
         post_html = post_html.replace('{{READ_TIME}}', read_time_str)
         post_html = post_html.replace('{{TRANSLATE_LINK_HTML}}', translate_link_html)
+        post_html = post_html.replace('{{FEATURED_IMAGE}}', featured_image_html)
         post_html = post_html.replace('{{CONTENT}}', content_html)
         post_html = post_html.replace('{{SHARE_URL}}', encoded_live_url)
         post_html = post_html.replace('{{SHARE_TEXT}}', encoded_title)

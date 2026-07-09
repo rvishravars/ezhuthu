@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>மரத்தடியில் ஆசிரியர் | The Writings of Vishravars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfcf9;
+            --surface-color: #ffffff;
+            --text-primary: #1c1c1c;
+            --text-secondary: #505050;
+            --accent-color: #2b6cb0;
+            --accent-hover: #1a365d;
+            --border-color: #e2e8f0;
+            --font-sans: 'Inter', 'Noto Sans Tamil', sans-serif;
+            --font-serif: 'Noto Serif Tamil', serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--surface-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .banner-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+        }
+        .nav-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .brand-name:hover {
+            color: var(--accent-color);
+        }
+        .back-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            min-height: calc(100vh - 160px);
+        }
+
+        /* Post Header Styling similar to visu.me */
+        .post-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .post-title {
+            font-size: clamp(2.15rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        .post-meta {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: inline-block;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .post-meta-separator {
+            border-left: 2px solid var(--border-color);
+            padding-left: 1rem;
+        }
+        .translate-link {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.5rem;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .translate-link:hover {
+            color: var(--accent-hover);
+            border-bottom-color: var(--accent-hover);
+        }
+
+        /* Content Styling */
+        .post-content {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+        .post-content p {
+            margin-bottom: 1.75em;
+        }
+        .post-content[lang="ta"] {
+            font-size: 1.15rem;
+            line-height: 1.85;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+        }
+
+        @media (max-width: 640px) {
+            .nav-container, main { width: 100%; }
+            main { padding: 2.5rem 1.5rem; }
+            .post-header { margin-bottom: 2.5rem; text-align: left; }
+            .post-meta, .translate-link { border-bottom: none; border-left: 3px solid var(--accent-color); padding-left: 0.75rem; padding-bottom: 0; }
+            .post-meta-separator { border-left: none; padding-left: 0; }
+            .post-content { font-size: 1.0rem; }
+            .post-content[lang="ta"] { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <img src="/images/banner.png" alt="Vishravars Blog Banner" class="header-banner">
+    </div>
+    <header>
+        <nav class="nav-container">
+            <a href="/index.html" class="brand-name">Vishravars</a>
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="/index.html" class="back-link">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Home
+                </a>
+                <a href="mailto:vishravars@gmail.com" class="brand-name" style="font-size: 1rem; color: var(--text-secondary);" title="Contact Me"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></a>
+                <a href="/rss.xml" class="brand-name" style="font-size: 1rem; color: var(--text-secondary);" title="RSS Feed"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 3v-1a2 2 0 10-4 0v1h4z"></path></svg></a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="post-container">
+        <div class="post-header">
+            <h1 class="post-title" id="post-title" lang="ta">மரத்தடியில் ஆசிரியர்</h1>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                <time class="post-meta" id="post-date">July 10, 2026</time>
+                <span class="post-meta post-meta-separator" id="read-time">3 min read</span>
+                <a id="translate-link" href="https://translate.google.com/translate?sl=ta&tl=en&u=https%3A%2F%2Fwww.vishravars.me%2Fposts%2Fmarathadiyil-aasiriyar%2F" target="_blank" class="translate-link post-meta-separator">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
+                    Translate to English
+                </a>
+            </div>
+        </div>
+        <div class="post-content" id="post-content" lang="ta">
+            <div class="featured-image-container" style="text-align: center; margin-bottom: 2.5rem;"><img src="/images/walnut.jpeg" alt="மரத்தடியில் ஆசிரியர்" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>
+            <p>வணக்கம் நண்பர்களே.</p><p>கல்லூரி படிப்புக்காக நான் சுமார் ஒன்றரை வருடங்களாக நியூசிலாந்தின் தெற்குப் பகுதியில் உள்ள டுனிடினில் குடும்பத்துடன் வசித்து வருகிறேன். கல்லூரி முடிவடைந்து பட்டத்துக்காக காத்திருக்கும் எனக்கு சில விஷயங்களை வீட்டில் அமர்ந்தபடியே ஜன்னல் வழியாக உற்று நோக்க நேரம் கிடைத்தது. </p><p>எடுத்துக்காட்டாக சொல்லவேண்டும் என்றால் சமமான இடைவெளியில் நிறுத்தப்பட்டிருக்கும் வாகனங்கள், சதா கட்டிடங்களுக்கு சாரம் அமைக்கும் தென்கிழக்குத் தொழிலாளர்கள்,  பல வடிவங்களில் அமைக்கப்பெற்றிருக்கும் கட்டிடங்கள், பழைய பாணி ஆண்டென்னாக்கள், மரங்கள், சிமினியிலிருந்து வெளியேறும் புகை போன்றவை. என் இரண்டு அடுக்கு கட்டிட வீட்டில் அமர்ந்து கொண்டு பார்க்கும் பார்வை இவை. </p><p>2ஆம் அடுக்கில் வசிக்கும் என்னால் சற்று உயர்ந்த இடத்திலிருந்து தூரத்தில் தோன்றும்  சமுத்திரம் வரை பார்க்க முடியும். ஒரு பைனாகுலர் இருந்தால் ஒரு திரைப்பட கதையே  எழுதக்கூடிய காட்சிகள். இதில் மனிதர்களைவிட வாகனங்களும், பறவைகளும், அவசரசிகிச்சை வானூர்திகளும் அதிகமாக பங்குபெறும் கதாபாத்திரங்கள். என் தெரு ஓரத்தில் ஆண்டுதோறும்  இயங்கும் நைட் அண்ட் டே அங்காடி. அதன் முன்பு உட்கார்ந்து புகை பிடிக்கும் பாட்டி. </p><p>டுனிடினில் பொதுவாக ஆண்டுதோறும் குறைந்த வெப்பநிலை நிலவும். கோடைகாலத்தில் சற்று வெப்பமாக இருக்கும். நியூசிலாந்து என்றாலே பொதுவாக வானம் சாம்பல் நிறத்தில் இருப்பது வழக்கம். மாறாக டுனிடினில் மேகம் கலைந்தால் சூரிய வெளிச்சத்துடன் நீல வானம் உறுதி. டுனிடின் அண்டைய ஊர்களை ஒப்பீடு செய்தால் சற்று வானிலை மாறியே காணப்படும். </p><p>இங்கு பொதுவாக ஒவ்வொரு வீட்டின் வாசலிலும் ஒன்று இரண்டு மரங்களை காண முடியும். சில மாதங்களுக்கு முன் என் கல்லூரி பேராசிரியர் ஒருநாள் எங்கள் குடியிருப்பின் முன் அவரது காரை நிறுத்தி தரையில் கிடந்த காய்ந்த ஒன்றை பையில் சேகரித்தார். என் காரை எடுக்க சென்ற சமயம் அவர் அவசரமாக அதை பையில் எடுத்து செல்வதை பார்த்தேன். ஹாய் மிஸ்டர் ஜெரிமியாஹ் என்று சொல்வதற்குள் அவர் காரில் ஏறி சென்றுவிட்டார். ஆசிரியரை என் வீட்டருகில் பார்த்த எனக்கு அந்த மரத்தையும் அவர் பொறுக்கிய காயையும் பற்றிய கேள்வி மனதில் எழவில்லை. </p><p>இன்று ஜெரிமியாவை நினைவு கூறி சற்று என்னதான் மரம் இது என்று இணையத்தளத்தில் தேடினேன். முதலில் எனக்கு செயற்கை அறிவு தளத்தைக் கொண்டு தேட தோன்றியது. ஏன் என்றால் அந்த மரம் முற்றிலும் அதன் இலைகளை இழந்து மொட்டை மரமாக இருந்ததுதான் காரணம். அது ஆடை அணியாத ஜைன சாமியார்போல தோன்றியது. எளிதாக அந்த மரத்தின் புகைப்படத்தை செயற்கை அறிவு தளத்தில் பதிவேற்றினேன். செயற்கை அறிவால் அந்த மரத்தின் பெயரை உறுதியாக கூறமுடியவில்லை. காலத்தை சரியாக கணித்த செயற்கை அறிவால் இலைகளும் பூக்களும் இல்லாத மரத்தின் பெயரை அளிக்க இயலவில்லை. ஜைன சாமியாரை ஆடையுடன் கண்டுபிடிக்க முடியாதது போல் திணறியது. பொதுவாக சொல்லப்போனால் இலைகளும் பூக்களும் இல்லாத மரத்திற்கு டூரிங் சொன்ன கற்றல் சாத்தியப்படவில்லை. அப்படியே கற்றாலும் அது உலக மரங்களின் பட்டியலில் தனது தனித்துவத்தை இழக்கக்கூடும். </p><p>நான் முன்பு கட்டுரையாக செயற்கை அறிவில் - தகவலும் செயலும் சுழற்சி மூலம் இயங்கும் தன்மையை பதிவிட்டுள்ளேன் https://www.vishravars.me/posts/seyarkkai-arivu/. அது ஒரு அடிப்படை பார்வை ஆனால் அதை நடைமுறைக்கு ஏற்றவாறு சமைத்துக்கொள்ள நான் கல்லூரியில் கற்ற தகவல் மீட்டெடுப்பு உதவியது. </p><p>கல்லூரியில் எனக்கு, செயற்கை நுண்ணறிவு சார்ந்த பாடம் நான்கு தாள்களாக அமைந்தது. மொத்தம் ஏழு தாள்கள் மற்றும் ஆய்வு கட்டுரை. </p><p>நான்கு தாள்களையும் இவ்வாறாக பிரிக்கலாம். தகவல் மீட்டெடுப்பு Information Retrieval (1), இயந்திர அறிவு Machine Learning (2), புள்ளிவிவர வணிக நுண்ணறிவு Statistical Business Intelligence (3)  மற்றும் ஆழ்ந்த வலைப்பின்னல் அறிவு Deep Neural Network (4). இவற்றின் பின்னணியில் உள்ள கணிதக் கோட்பாடுகள் பல நூற்றாண்டுகளாக உருவாகி வந்தவை. </p><p>தகவல் மீட்டெடுப்பில் நாம் எழுதப்பட்ட அல்லது சொல்லப்பட்ட தகவல்களை மிக குறுகிய காலத்தில் அதாவது சில கணங்களில் கேள்வியைக் கொண்டு மீட்டெடுக்க முடியும். நாம் இந்த முறையில் கேள்விக்கான பதிலை ஏற்கனவே எழுதப்பட்ட ஆவணத்தின் மூலமாகவே அறிய முடியும். உதாரணமாக இந்து தத்துவமரபில் குறிப்பாக பௌத்த மரபில் கடவுளின் இருப்பை தொட்ட எழுத்துக்கள் என வினவினால் - உதயனர் எழுதிய ந்யாயகுசுமஞ்சலி எனும் நூலோ அல்லது அதன் துணுக்குகளோ தேடலின் முடிவாக அளிக்கக்கூடும். பதில் ஒன்றாகவோ பலவாகவோ வரிசைப்படுத்தி கொடுக்கக்கூடும். இந்த வரிசைப்படுத்தலே நாம் செயற்கை அறிவு என கூறலாம்.</p><p>என் ஆசிரியரால் என்னுள் மரத்தைப் பற்றிய கேள்விகள் எழுந்தன - அதன் விடைக்கு மரத்தின் பெயரை யாரிடத்திலாவது கேட்டு தெரிந்து கொள்ளலாம் - மாறாக அருகில் இருக்கும்  தாவரவியல் பூங்காவில் ஒரு வினாவாக இதை எழுப்பலாம். மாறாக வீட்டிலிருந்தே ஜெபிக்கும் நான் - சற்று இணையத்தில் பாரம்பரிய தேடலை கையாண்டேன். இணையத் தேடலின் மூலம்  டுனிடின் மன்றத்தின் இணையதளத்தை அடைந்த எனக்கு - அங்கே எல்லா மரங்களும் தெருவாரியாக பெயரிடப்பட்டிருந்தது. அதில் எங்கள் கட்டிட எண்ணைக் கொண்ட மரத்தின் பெயர் ஜக்லன்ஸ் ரெஜியா (Juglans regia) என்ற இங்கிலிஷ் வால்நட் (English walnut) மரம் என கண்டறிந்தேன். குளிர்காலத்தில் விழும்  வால்நட்டுகளை அவற்றின் அடர்த்தியான, மண் போன்ற சுவைக்காக சேகரிக்கின்றனர், இது பை மற்றும் ஃபட்ஜ் போன்ற பேக்கரிப் பொருட்களின் சுவையை மேம்படுத்துகிறது.</p><p>தேடலிற்கான காரணத்தாலும், முயற்சியாலும், வழிமுறையாலும் ஒரு கேள்விக்கான உருவத்தைப் கொடுக்க முடியும். இந்த அடுக்குகளைக் கொண்ட கேள்வியைப் பொறுத்தே சரியான விடைக்கான செயலாற்றல் உருவாக்கப்படும். நான் கல்லூரியில் கற்ற நான்கு பாடங்களும் செயலாற்றலுக்கான வழிமுறைகளே. அன்று ஜெரிமியாவும் வால்நட் மரமும் கொடுத்த பாடம் இது.</p>
+        </div>
+        
+        <div class="share-buttons" id="share-buttons" style="display: flex; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); justify-content: center; gap: 1rem; align-items: center;">
+            <span style="color: var(--text-secondary); font-weight: 500;">Share this post:</span>
+            <button onclick="sharePost()" style="background: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                Share
+            </button>
+            <a id="share-twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.vishravars.me%2Fposts%2Fmarathadiyil-aasiriyar%2F&text=%E0%AE%AE%E0%AE%B0%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AE%9F%E0%AE%BF%E0%AE%AF%E0%AE%BF%E0%AE%B2%E0%AF%8D+%E0%AE%86%E0%AE%9A%E0%AE%BF%E0%AE%B0%E0%AE%BF%E0%AE%AF%E0%AE%B0%E0%AF%8D" target="_blank" style="text-decoration: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                Post
+            </a>
+            <a id="share-whatsapp" href="https://wa.me/?text=%E0%AE%AE%E0%AE%B0%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AE%9F%E0%AE%BF%E0%AE%AF%E0%AE%BF%E0%AE%B2%E0%AF%8D+%E0%AE%86%E0%AE%9A%E0%AE%BF%E0%AE%B0%E0%AE%BF%E0%AE%AF%E0%AE%B0%E0%AF%8D%20https%3A%2F%2Fwww.vishravars.me%2Fposts%2Fmarathadiyil-aasiriyar%2F" target="_blank" style="text-decoration: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                WhatsApp
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p style="margin-bottom: 0.5rem;"><a href="mailto:vishravars@gmail.com" style="color: var(--text-secondary); text-decoration: none;">Contact: vishravars@gmail.com</a></p>
+        <p>&copy; 2026 Vishravars. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function sharePost() {
+            if (navigator.share) {
+                navigator.share({ title: "மரத்தடியில் ஆசிரியர்", url: window.location.href });
+            } else {
+                alert('Your browser does not support the native share feature.');
+            }
+        }
+        
+        // Progressive enhancement for Google Translate switchback
+        if (window.location.hostname.includes('translate.goog')) {
+            const translateLink = document.getElementById('translate-link');
+            if (translateLink) {
+                const originalUrl = new URL(window.location.href);
+                originalUrl.hostname = 'www.vishravars.me';
+                const cleanParams = new URLSearchParams(originalUrl.search);
+                for (const key of [...cleanParams.keys()]) {
+                    if (key.startsWith('_x_tr_')) cleanParams.delete(key);
+                }
+                originalUrl.search = cleanParams.toString();
+                
+                translateLink.href = originalUrl.toString();
+                translateLink.target = '_top';
+                translateLink.innerHTML = `
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
+                    View Original (Tamil)
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
