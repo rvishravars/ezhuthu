@@ -3,6 +3,7 @@ import json
 import re
 import urllib.parse
 import datetime
+import html
 
 # Paths
 BASE_DIR = '/Users/vishravars/code/ezhuthu'
@@ -38,10 +39,30 @@ def main():
 
     articles_html = []
     rss_items = []
+    sitemap_items = []
+    post_dates_iso = []
 
     # Ensure posts folder exists
     if not os.path.exists(POSTS_DIR):
         os.makedirs(POSTS_DIR)
+
+    # Collect ISO dates first for sitemap homepage lastmod
+    for post in posts:
+        date_str = post['date']
+        try:
+            dt = datetime.datetime.strptime(date_str, "%B %d, %Y")
+            post_dates_iso.append(dt.strftime("%Y-%m-%d"))
+        except Exception:
+            pass
+    latest_date_iso = max(post_dates_iso) if post_dates_iso else datetime.datetime.now().strftime("%Y-%m-%d")
+
+    # Add homepage to sitemap
+    sitemap_items.append(f"""    <url>
+        <loc>https://www.vishravars.me/</loc>
+        <lastmod>{latest_date_iso}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>""")
 
     for post in posts:
         post_id = post['id']
@@ -95,6 +116,53 @@ def main():
                                     Translate to English
                                 </a>"""
 
+        # Description and dynamic SEO properties
+        description = post.get('description')
+        if not description:
+            clean_text = re.sub(r'\s+', ' ', text_content).strip()
+            description = clean_text[:155].strip() + '...' if len(clean_text) > 155 else clean_text
+        
+        description_escaped = html.escape(description)
+        
+        og_image_url = f"https://www.vishravars.me/images/{post['image']}" if post.get('image') else "https://www.vishravars.me/images/banner.png"
+
+        # Parse ISO date for post sitemap and JSON-LD
+        iso_date = latest_date_iso
+        try:
+            dt = datetime.datetime.strptime(date_str, "%B %d, %Y")
+            iso_date = dt.strftime("%Y-%m-%d")
+        except Exception:
+            pass
+
+        # Generate JSON-LD for post
+        post_json_ld = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": title,
+            "datePublished": iso_date,
+            "dateModified": iso_date,
+            "description": description,
+            "image": og_image_url,
+            "author": {
+                "@type": "Person",
+                "name": "Vishravars",
+                "url": "https://www.vishravars.me/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "The Writings of Vishravars",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.vishravars.me/images/banner.png"
+                }
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": canonical_post_url
+            }
+        }
+        json_ld_str = json.dumps(post_json_ld, ensure_ascii=False, indent=2)
+
         # Populate post page template
         post_html = post_template
         
@@ -113,6 +181,12 @@ def main():
         post_html = post_html.replace('{{CONTENT}}', content_html)
         post_html = post_html.replace('{{SHARE_URL}}', encoded_live_url)
         post_html = post_html.replace('{{SHARE_TEXT}}', encoded_title)
+        
+        # New SEO replacements
+        post_html = post_html.replace('{{META_DESCRIPTION}}', description_escaped)
+        post_html = post_html.replace('{{CANONICAL_URL}}', canonical_post_url)
+        post_html = post_html.replace('{{OG_IMAGE_URL}}', og_image_url)
+        post_html = post_html.replace('{{JSON_LD}}', json_ld_str)
 
         # Create output directory for post
         post_output_dir = os.path.join(POSTS_DIR, post_id)
@@ -141,7 +215,6 @@ def main():
         articles_html.append(article_item_html)
 
         # Build RSS item
-        description = post.get('description', f"{title} குறித்த ஒரு கட்டுரை.")
         pub_date_rfc = format_rfc822_date(date_str)
         rss_item = f"""    <item>
         <title>{title}</title>
@@ -151,9 +224,34 @@ def main():
     </item>"""
         rss_items.append(rss_item)
 
+        # Add post to sitemap
+        sitemap_items.append(f"""    <url>
+        <loc>{canonical_post_url}</loc>
+        <lastmod>{iso_date}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>""")
+
     # Generate index.html
     combined_articles = "\n".join(articles_html)
+    
+    # Generate JSON-LD for homepage
+    homepage_json_ld = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "The Writings of Vishravars",
+        "url": "https://www.vishravars.me/",
+        "description": "Personal blog of Vishravars featuring writings, stories, and thoughts in Tamil and English.",
+        "publisher": {
+            "@type": "Person",
+            "name": "Vishravars"
+        }
+    }
+    homepage_json_ld_str = json.dumps(homepage_json_ld, ensure_ascii=False, indent=2)
+
     final_index_html = index_template.replace('{{POSTS_LIST}}', combined_articles)
+    final_index_html = final_index_html.replace('{{JSON_LD}}', homepage_json_ld_str)
+    
     with open(os.path.join(BASE_DIR, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(final_index_html)
     print("Generated homepage: /index.html")
@@ -173,6 +271,27 @@ def main():
     with open(os.path.join(BASE_DIR, 'rss.xml'), 'w', encoding='utf-8') as f:
         f.write(rss_xml_content)
     print("Generated RSS feed: /rss.xml")
+
+    # Generate sitemap.xml
+    combined_sitemap = "\n".join(sitemap_items)
+    sitemap_xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{combined_sitemap}
+</urlset>
+"""
+    with open(os.path.join(BASE_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+        f.write(sitemap_xml_content)
+    print("Generated Sitemap: /sitemap.xml")
+
+    # Generate robots.txt
+    robots_content = """User-agent: *
+Allow: /
+
+Sitemap: https://www.vishravars.me/sitemap.xml
+"""
+    with open(os.path.join(BASE_DIR, 'robots.txt'), 'w', encoding='utf-8') as f:
+        f.write(robots_content)
+    print("Generated robots.txt")
 
 if __name__ == '__main__':
     main()
