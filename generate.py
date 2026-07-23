@@ -84,10 +84,14 @@ def main():
         paragraphs_raw = re.split(r'\n\s*\n', text_content.strip())
         paragraphs = []
         for p in paragraphs_raw:
-            if p.strip():
-                p_formatted = p.replace('\n', '<br>')
-                p_formatted = linkify(p_formatted)
-                paragraphs.append(f"<p>{p_formatted}</p>")
+            p_stripped = p.strip()
+            if p_stripped:
+                if p_stripped.startswith('<'):
+                    paragraphs.append(p_stripped)
+                else:
+                    p_formatted = p_stripped.replace('\n', '<br>')
+                    p_formatted = linkify(p_formatted)
+                    paragraphs.append(f"<p>{p_formatted}</p>")
         content_html = "".join(paragraphs)
 
         # Word count & reading time
