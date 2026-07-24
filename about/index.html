@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<html lang="{{LANG}}">
+<html lang="ta">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{TITLE}} | The Writings of Vishravars</title>
-    <meta name="description" content="{{META_DESCRIPTION}}">
+    <title>என்னை பற்றி | The Writings of Vishravars</title>
+    <meta name="description" content="விஸ்ரவர்ஸ் - என்னை பற்றி.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{CANONICAL_URL}}">
+    <link rel="canonical" href="https://www.vishravars.me/about/">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="{{CANONICAL_URL}}">
-    <meta property="og:title" content="{{TITLE}} | The Writings of Vishravars">
-    <meta property="og:description" content="{{META_DESCRIPTION}}">
-    <meta property="og:image" content="{{OG_IMAGE_URL}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.vishravars.me/about/">
+    <meta property="og:title" content="என்னை பற்றி | The Writings of Vishravars">
+    <meta property="og:description" content="விஸ்ரவர்ஸ் - என்னை பற்றி.">
+    <meta property="og:image" content="https://www.vishravars.me/images/banner.png">
     <meta property="og:site_name" content="The Writings of Vishravars">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{CANONICAL_URL}}">
-    <meta property="twitter:title" content="{{TITLE}} | The Writings of Vishravars">
-    <meta property="twitter:description" content="{{META_DESCRIPTION}}">
-    <meta property="twitter:image" content="{{OG_IMAGE_URL}}">
+    <meta property="twitter:url" content="https://www.vishravars.me/about/">
+    <meta property="twitter:title" content="என்னை பற்றி | The Writings of Vishravars">
+    <meta property="twitter:description" content="விஸ்ரவர்ஸ் - என்னை பற்றி.">
+    <meta property="twitter:image" content="https://www.vishravars.me/images/banner.png">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {{JSON_LD}}
+    {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "என்னை பற்றி",
+  "description": "விஸ்ரவர்ஸ் - என்னை பற்றி.",
+  "url": "https://www.vishravars.me/about/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Vishravars"
+  }
+}
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -282,7 +292,6 @@
                     </svg>
                     Home
                 </a>
-                <a href="/about/" class="brand-name" style="font-size: 1rem; color: var(--text-secondary);" title="About">About</a>
                 <a href="mailto:vishravars@gmail.com" class="brand-name"
                     style="font-size: 1rem; color: var(--text-secondary);" title="Contact Me"><svg fill="none"
                         stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
@@ -301,49 +310,18 @@
 
     <main id="post-container">
         <div class="post-header">
-            <h1 class="post-title" id="post-title" lang="{{LANG}}">{{TITLE}}</h1>
+            <h1 class="post-title" id="post-title" lang="ta">என்னை பற்றி</h1>
             <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-                <time class="post-meta" id="post-date">{{DATE}}</time>
-                <span class="post-meta post-meta-separator" id="read-time">{{READ_TIME}}</span>
-                {{TRANSLATE_LINK_HTML}}
+                <a href="en/" class="translate-link post-meta-separator">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
+                    Read in English
+                </a>
             </div>
         </div>
-        <div class="post-content" id="post-content" lang="{{LANG}}">
-            {{FEATURED_IMAGE}}
-            {{CONTENT}}
-        </div>
-
-        <div class="share-buttons" id="share-buttons"
-            style="display: flex; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); justify-content: center; gap: 1rem; align-items: center;">
-            <span style="color: var(--text-secondary); font-weight: 500;">Share this post:</span>
-            <button onclick="sharePost()"
-                style="background: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z">
-                    </path>
-                </svg>
-                Share
-            </button>
-            <a id="share-twitter" href="https://twitter.com/intent/tweet?url={{SHARE_URL}}&text={{SHARE_TEXT}}"
-                target="_blank"
-                style="text-decoration: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
-                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
-                    <path
-                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
-                    </path>
-                </svg>
-                Post
-            </a>
-            <a id="share-whatsapp" href="https://wa.me/?text={{SHARE_TEXT}}%20{{SHARE_URL}}" target="_blank"
-                style="text-decoration: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
-                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
-                    <path
-                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z">
-                    </path>
-                </svg>
-                WhatsApp
-            </a>
+        <div class="post-content" id="post-content" lang="ta">
+            
+            <p>என்னைப் பற்றி... என்னை நீங்கள் எப்போது, எங்கு பார்க்கிறீர்கள் என்பதைப் பொறுத்து இது மாறும்.</p>
+<p>எனக்குப் பிடித்த விஷயங்கள்:<br>- மோட்டார் சைக்கிளில் சுற்றுவது (கடைக்கு பால் வாங்கச் செல்வது உட்பட!)<br>- காபி<br>- அம்மாவுடன் விவாதம் செய்வது<br>- நிரல்கள் (Code) எழுதுவது<br>- நிரல்களைப் படிப்பது<br>- கட்டுரைகள் எழுதுவது</p>
         </div>
     </main>
 
@@ -352,16 +330,5 @@
                 style="color: var(--text-secondary); text-decoration: none;">Contact: vishravars@gmail.com</a></p>
         <p>&copy; 2026 Vishravars. All rights reserved.</p>
     </footer>
-
-    <script>
-        function sharePost() {
-            if (navigator.share) {
-                navigator.share({ title: "{{TITLE}}", url: window.location.href });
-            } else {
-                alert('Your browser does not support the native share feature.');
-            }
-        }
-    </script>
 </body>
-
 </html>

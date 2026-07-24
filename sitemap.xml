@@ -7,27 +7,63 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.vishravars.me/posts/thekkutheevu-payanam-paagam-ondru/</loc>
-        <lastmod>2026-07-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
+            <loc>https://www.vishravars.me/posts/thekkutheevu-payanam-paagam-ondru/</loc>
+            <lastmod>2026-07-23</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
     <url>
-        <loc>https://www.vishravars.me/posts/marathadiyil-aasiriyar/</loc>
-        <lastmod>2026-07-10</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
+            <loc>https://www.vishravars.me/posts/thekkutheevu-payanam-paagam-ondru/en/</loc>
+            <lastmod>2026-07-23</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
     <url>
-        <loc>https://www.vishravars.me/posts/seyarkkai-arivu/</loc>
-        <lastmod>2026-07-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
+            <loc>https://www.vishravars.me/posts/marathadiyil-aasiriyar/</loc>
+            <lastmod>2026-07-10</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
     <url>
-        <loc>https://www.vishravars.me/posts/vilayattu/</loc>
-        <lastmod>2026-07-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
+            <loc>https://www.vishravars.me/posts/marathadiyil-aasiriyar/en/</loc>
+            <lastmod>2026-07-10</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+    <url>
+            <loc>https://www.vishravars.me/posts/seyarkkai-arivu/</loc>
+            <lastmod>2026-07-06</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+    <url>
+            <loc>https://www.vishravars.me/posts/seyarkkai-arivu/en/</loc>
+            <lastmod>2026-07-06</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+    <url>
+            <loc>https://www.vishravars.me/posts/vilayattu/</loc>
+            <lastmod>2026-07-01</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+    <url>
+            <loc>https://www.vishravars.me/posts/vilayattu/en/</loc>
+            <lastmod>2026-07-01</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+    <url>
+            <loc>https://www.vishravars.me/about/</loc>
+            <lastmod>2026-07-23</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+    <url>
+            <loc>https://www.vishravars.me/about/en/</loc>
+            <lastmod>2026-07-23</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
 </urlset>

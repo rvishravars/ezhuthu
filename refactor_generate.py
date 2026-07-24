@@ -1,80 +1,18 @@
 import os
 import json
 import re
-import urllib.parse
-import datetime
-import html
 
-# Paths
 BASE_DIR = '/Users/vishravars/code/ezhuthu'
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-POSTS_DIR = os.path.join(BASE_DIR, 'posts')
-PAGES_DIR = os.path.join(BASE_DIR, 'raw_pages')
+gen_path = os.path.join(BASE_DIR, 'generate.py')
 
-def format_rfc822_date(date_str):
-    try:
-        # e.g., "July 6, 2026"
-        dt = datetime.datetime.strptime(date_str, "%B %d, %Y")
-        return dt.strftime("%a, %d %b %Y 00:00:00 +0000")
-    except Exception as e:
-        print(f"Warning: Could not parse date format '{date_str}': {e}")
-        # Fallback to current time RFC822 if parse fails
-        return datetime.datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
+with open(gen_path, 'r', encoding='utf-8') as f:
+    content = f.read()
 
-def linkify(text):
-    # Regex to find http/https URLs, ignoring trailing punctuation like periods or commas
-    pattern = r'(https?://[^\s<>"]+?)(?=[.,;:!?]?(?:\s|$))'
-    return re.sub(pattern, r'<a href="\1" target="_blank">\1</a>', text)
+# REWRITE the post loop
+post_loop_start = """    for post in posts:
+        post_id = post['id']"""
 
-def main():
-    # Load posts metadata
-    posts_json_path = os.path.join(BASE_DIR, 'posts.json')
-    with open(posts_json_path, 'r', encoding='utf-8') as f:
-        posts = json.load(f)
-        
-    # Load pages metadata
-    pages_json_path = os.path.join(BASE_DIR, 'pages.json')
-    pages = []
-    if os.path.exists(pages_json_path):
-        with open(pages_json_path, 'r', encoding='utf-8') as f:
-            pages = json.load(f)
-        
-    # Read templates
-    with open(os.path.join(TEMPLATES_DIR, 'index.html'), 'r', encoding='utf-8') as f:
-        index_template = f.read()
-    with open(os.path.join(TEMPLATES_DIR, 'post.html'), 'r', encoding='utf-8') as f:
-        post_template = f.read()
-    with open(os.path.join(TEMPLATES_DIR, 'page.html'), 'r', encoding='utf-8') as f:
-        page_template = f.read()
-
-    articles_html = []
-    rss_items = []
-    sitemap_items = []
-    post_dates_iso = []
-
-    # Ensure posts folder exists
-    if not os.path.exists(POSTS_DIR):
-        os.makedirs(POSTS_DIR)
-
-    # Collect ISO dates first for sitemap homepage lastmod
-    for post in posts:
-        date_str = post['date']
-        try:
-            dt = datetime.datetime.strptime(date_str, "%B %d, %Y")
-            post_dates_iso.append(dt.strftime("%Y-%m-%d"))
-        except Exception:
-            pass
-    latest_date_iso = max(post_dates_iso) if post_dates_iso else datetime.datetime.now().strftime("%Y-%m-%d")
-
-    # Add homepage to sitemap
-    sitemap_items.append(f"""    <url>
-        <loc>https://www.vishravars.me/</loc>
-        <lastmod>{latest_date_iso}</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>""")
-
-    for post in posts:
+new_post_loop = """    for post in posts:
         post_id = post['id']
         date_str = post['date']
         
@@ -97,7 +35,7 @@ def main():
                 text_content = f.read()
 
             # Render paragraphs
-            paragraphs_raw = re.split(r'\n\s*\n', text_content.strip())
+            paragraphs_raw = re.split(r'\\n\\s*\\n', text_content.strip())
             paragraphs = []
             for p in paragraphs_raw:
                 p_stripped = p.strip()
@@ -105,7 +43,7 @@ def main():
                     if p_stripped.startswith('<'):
                         paragraphs.append(p_stripped)
                     else:
-                        p_formatted = p_stripped.replace('\n', '<br>')
+                        p_formatted = p_stripped.replace('\\n', '<br>')
                         p_formatted = linkify(p_formatted)
                         paragraphs.append(f"<p>{p_formatted}</p>")
             content_html = "".join(paragraphs)
@@ -143,7 +81,7 @@ def main():
             # Description and dynamic SEO properties
             description = post.get('description_en') if is_english else post.get('description')
             if not description:
-                clean_text = re.sub(r'\s+', ' ', text_content).strip()
+                clean_text = re.sub(r'\\s+', ' ', text_content).strip()
                 description = clean_text[:155].strip() + '...' if len(clean_text) > 155 else clean_text
             
             description_escaped = html.escape(description)
@@ -223,7 +161,7 @@ def main():
 
             # Create index.html preview (only for Tamil, with the link to English)
             if not is_english:
-                plain_text = re.sub(r'\s+', ' ', text_content).strip()
+                plain_text = re.sub(r'\\s+', ' ', text_content).strip()
                 preview_text = plain_text[:250].strip() + '...' if len(plain_text) > 250 else plain_text
                 
                 article_item_html = f'''        <article>
@@ -255,33 +193,23 @@ def main():
         <description>{post.get('description', '')}</description>
         <pubDate>{pub_date_rfc}</pubDate>
     </item>'''
-        rss_items.append(rss_item)
+        rss_items.append(rss_item)"""
 
-    # Generate index.html
-    combined_articles = "\n".join(articles_html)
-    
-    # Generate JSON-LD for homepage
-    homepage_json_ld = {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "The Writings of Vishravars",
-        "url": "https://www.vishravars.me/",
-        "description": "Personal blog of Vishravars featuring writings, stories, and thoughts in Tamil and English.",
-        "publisher": {
-            "@type": "Person",
-            "name": "Vishravars"
-        }
-    }
-    homepage_json_ld_str = json.dumps(homepage_json_ld, ensure_ascii=False, indent=2)
+# Find where the original loop ends.
+# It ends right before "# Generate index.html"
+end_of_loop_marker = "    # Generate index.html"
 
-    final_index_html = index_template.replace('{{POSTS_LIST}}', combined_articles)
-    final_index_html = final_index_html.replace('{{JSON_LD}}', homepage_json_ld_str)
-    
-    with open(os.path.join(BASE_DIR, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(final_index_html)
-    print("Generated homepage: /index.html")
+# Extract parts
+before_loop = content.split("    for post in posts:\n        post_id = post['id']")[0]
+after_loop = end_of_loop_marker + content.split(end_of_loop_marker)[1]
 
-    # Process Static Pages
+# Now for pages
+# REWRITE the page loop
+page_loop_start = """    # Process Static Pages
+    for page in pages:
+        page_id = page['id']"""
+
+new_page_loop = """    # Process Static Pages
     for page in pages:
         page_id = page['id']
         
@@ -303,7 +231,7 @@ def main():
             with open(src_path, 'r', encoding='utf-8') as f:
                 text_content = f.read()
                 
-            paragraphs_raw = re.split(r'\n\s*\n', text_content.strip())
+            paragraphs_raw = re.split(r'\\n\\s*\\n', text_content.strip())
             paragraphs = []
             for p in paragraphs_raw:
                 p_stripped = p.strip()
@@ -311,11 +239,11 @@ def main():
                     if p_stripped.startswith('<') and p_stripped.endswith('>'):
                         paragraphs.append(p_stripped)
                     else:
-                        p_formatted = p_stripped.replace('\n', '<br>')
+                        p_formatted = p_stripped.replace('\\n', '<br>')
                         p_formatted = linkify(p_formatted)
                         paragraphs.append(f'<p>{p_formatted}</p>')
                         
-            page_content_html = "\n".join(paragraphs)
+            page_content_html = "\\n".join(paragraphs)
             
             base_url = f"https://www.vishravars.me/{page_id}/"
             canonical_url = f"https://www.vishravars.me/{page_id}/en/" if is_english else base_url
@@ -371,44 +299,14 @@ def main():
             <lastmod>{latest_date_iso}</lastmod>
             <changefreq>monthly</changefreq>
             <priority>0.8</priority>
-        </url>''')
+        </url>''')"""
 
-    # Generate rss.xml
-    combined_rss_items = "\n".join(rss_items)
-    rss_xml_content = f"""<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-<channel>
-    <title>The Writings of Vishravars</title>
-    <link>https://www.vishravars.me</link>
-    <description>Personal blog of Vishravars.</description>
-{combined_rss_items}
-</channel>
-</rss>
-"""
-    with open(os.path.join(BASE_DIR, 'rss.xml'), 'w', encoding='utf-8') as f:
-        f.write(rss_xml_content)
-    print("Generated RSS feed: /rss.xml")
+# Find where page loop starts and ends
+before_page_loop = after_loop.split(page_loop_start)[0]
+end_of_page_loop_marker = "    # Generate rss.xml"
+after_page_loop = end_of_page_loop_marker + after_loop.split(end_of_page_loop_marker)[1]
 
-    # Generate sitemap.xml
-    combined_sitemap = "\n".join(sitemap_items)
-    sitemap_xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{combined_sitemap}
-</urlset>
-"""
-    with open(os.path.join(BASE_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
-        f.write(sitemap_xml_content)
-    print("Generated Sitemap: /sitemap.xml")
+new_content = before_loop + new_post_loop + "\n\n" + before_page_loop + new_page_loop + "\n\n" + after_page_loop
 
-    # Generate robots.txt
-    robots_content = """User-agent: *
-Allow: /
-
-Sitemap: https://www.vishravars.me/sitemap.xml
-"""
-    with open(os.path.join(BASE_DIR, 'robots.txt'), 'w', encoding='utf-8') as f:
-        f.write(robots_content)
-    print("Generated robots.txt")
-
-if __name__ == '__main__':
-    main()
+with open(gen_path, 'w', encoding='utf-8') as f:
+    f.write(new_content)

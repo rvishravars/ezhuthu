@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +56,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-color: #fcfcf9;
@@ -69,7 +72,12 @@
             --font-serif: 'Noto Serif Tamil', serif;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: var(--font-sans);
             background-color: var(--surface-color);
@@ -100,6 +108,7 @@
             background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(8px);
         }
+
         .nav-container {
             width: 80%;
             max-width: 1200px;
@@ -109,6 +118,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .brand-name {
             font-size: 1.25rem;
             font-weight: 700;
@@ -116,9 +126,11 @@
             text-decoration: none;
             transition: color 0.2s ease;
         }
+
         .brand-name:hover {
             color: var(--accent-color);
         }
+
         .back-link {
             font-size: 0.95rem;
             font-weight: 600;
@@ -129,6 +141,7 @@
             align-items: center;
             gap: 0.25rem;
         }
+
         .back-link:hover {
             color: var(--accent-color);
         }
@@ -146,6 +159,7 @@
             text-align: center;
             margin-bottom: 3.5rem;
         }
+
         .post-title {
             font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 700;
@@ -153,6 +167,7 @@
             color: var(--text-primary);
             margin-bottom: 1.25rem;
         }
+
         .post-meta {
             font-size: 0.9rem;
             color: var(--text-secondary);
@@ -161,10 +176,12 @@
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
         }
+
         .post-meta-separator {
             border-left: 2px solid var(--border-color);
             padding-left: 1rem;
         }
+
         .translate-link {
             font-size: 0.9rem;
             color: var(--accent-color);
@@ -177,6 +194,7 @@
             padding-bottom: 0.5rem;
             transition: color 0.2s ease, border-color 0.2s ease;
         }
+
         .translate-link:hover {
             color: var(--accent-hover);
             border-bottom-color: var(--accent-hover);
@@ -189,19 +207,23 @@
             color: var(--text-secondary);
             line-height: 1.7;
         }
+
         .post-content p {
             margin-bottom: 1.5em;
         }
+
         .post-content[lang="ta"] {
             font-size: 1.0rem;
             line-height: 1.75;
         }
+
         .image-grid-2col {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
             margin: 2.5rem 0;
         }
+
         .image-grid-2col img {
             width: 100%;
             height: 320px;
@@ -210,7 +232,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             display: block;
         }
-        
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -221,18 +243,55 @@
         }
 
         @media (max-width: 640px) {
-            .nav-container, main { width: 100%; }
-            main { padding: 2.5rem 1.5rem; }
-            .post-header { margin-bottom: 2.5rem; text-align: left; }
-            .post-meta, .translate-link { border-bottom: none; border-left: 3px solid var(--accent-color); padding-left: 0.75rem; padding-bottom: 0; }
-            .post-meta-separator { border-left: none; padding-left: 0; }
-            .post-content { font-size: 0.9rem; }
-            .post-content[lang="ta"] { font-size: 0.95rem; }
-            .image-grid-2col { grid-template-columns: 1fr; gap: 1rem; }
-            .image-grid-2col img { height: auto; max-height: 300px; }
+
+            .nav-container,
+            main {
+                width: 100%;
+            }
+
+            main {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .post-header {
+                margin-bottom: 2.5rem;
+                text-align: left;
+            }
+
+            .post-meta,
+            .translate-link {
+                border-bottom: none;
+                border-left: 3px solid var(--accent-color);
+                padding-left: 0.75rem;
+                padding-bottom: 0;
+            }
+
+            .post-meta-separator {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .post-content {
+                font-size: 0.9rem;
+            }
+
+            .post-content[lang="ta"] {
+                font-size: 0.95rem;
+            }
+
+            .image-grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .image-grid-2col img {
+                height: auto;
+                max-height: 300px;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="banner-container">
         <img src="/images/banner.png" alt="Vishravars Blog Banner" class="header-banner">
@@ -242,11 +301,25 @@
             <a href="/index.html" class="brand-name">Vishravars</a>
             <div style="display: flex; gap: 1.5rem; align-items: center;">
                 <a href="/index.html" class="back-link">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
                     Home
                 </a>
-                <a href="mailto:vishravars@gmail.com" class="brand-name" style="font-size: 1rem; color: var(--text-secondary);" title="Contact Me"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></a>
-                <a href="/rss.xml" class="brand-name" style="font-size: 1rem; color: var(--text-secondary);" title="RSS Feed"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 3v-1a2 2 0 10-4 0v1h4z"></path></svg></a>
+                <a href="/about/" class="brand-name" style="font-size: 1rem; color: var(--text-secondary);" title="About">About</a>
+                <a href="mailto:vishravars@gmail.com" class="brand-name"
+                    style="font-size: 1rem; color: var(--text-secondary);" title="Contact Me"><svg fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                        </path>
+                    </svg></a>
+                <a href="/rss.xml" class="brand-name" style="font-size: 1rem; color: var(--text-secondary);"
+                    title="RSS Feed"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 3v-1a2 2 0 10-4 0v1h4z"></path>
+                    </svg></a>
             </div>
         </nav>
     </header>
@@ -257,9 +330,9 @@
             <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
                 <time class="post-meta" id="post-date">July 6, 2026</time>
                 <span class="post-meta post-meta-separator" id="read-time">1 min read</span>
-                <a id="translate-link" href="https://translate.google.com/translate?sl=ta&tl=en&u=https%3A%2F%2Fwww.vishravars.me%2Fposts%2Fseyarkkai-arivu%2F" target="_blank" class="translate-link post-meta-separator">
+                <a href="en/" class="translate-link post-meta-separator">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
-                    Translate to English
+                    Read in English
                 </a>
             </div>
         </div>
@@ -267,26 +340,44 @@
             
             <p>இருபது ஆண்டுகள் இடைவெளிக்குப் பின் முதுகலைக் கல்வி பயிலும் என்னை, செயற்கை நுண்ணறிவு பாடங்களின் தாக்கம் தினமும் துரத்துவது போல் உணர்கிறேன். விடாது செயற்கை அறிவு என குறிப்பிடுவதை நான் ஆழமாக உள்நோக்கி எனக்கென ஓர் அர்த்தத்தை உருவாக்கிக்கொள்ள முடியுமா?</p><p>நவீன காலகட்டத்தில் ஆலன் டூரிங் (Alan Turing) செயற்கை அறிவுக்கு ஒரு தொடக்க பார்வை அளித்தார். அவர் ஒரு இயந்திரத்தின் வெளிப்படையான செயல்பாடுகளும் அதன் பகுத்தறியும் திறனும் மனிதனின் செயல்பாடுகளிலிருந்து வேறுபடுத்தி அறிய முடியாத வகையில் அமைந்தால், அந்த இயந்திரம் செயல்பாட்டு ரீதியாக அறிவுத்திறன் கொண்டதாகவே கருதப்படும் என்று வாதிட்டார். அவர் எழுதிய Computing Machinery and Intelligence புத்தகத்தின் மூலம் அதை உணர முடியும். அவரது இந்த சிந்தனைச் சோதனை தத்துவத்திலிருந்து செயல்பாட்டிற்கு நம்மை கொண்டு சென்றது.</p><p>கிட்டத்தட்ட அதே காலகட்டத்தில் க்ளாட் ஷன்னோன் (Claude Shannon) தனது தகவல் கோட்பாட்டை அளித்தார். அதன் தூணாக அமைவது நிகழ்தகவு (probability) தன்மை. இதை நிச்சயமற்ற தன்மையென்றும் எடுத்துக்கொள்ளலாம். ஷன்னோனின்  மிக முக்கியமான வரையறை - தகவல் என்பது நிச்சயமற்ற தன்மையைத் தீர்ப்பதாகும். ஷன்னோன் நிகழ்தகவைப் பயன்படுத்தி நிச்சயமற்ற தன்மையை அளவிட்டார்; டூரிங் கணக்கீட்டின் மூலம் அந்த நிச்சயமற்ற தன்மையைத் தீர்க்கும் வழிமுறைகளை வடிவமைத்தார்.</p><p>இரு நண்பர்களின் பங்களிப்புகளை இணைத்துப் பார்த்தால், தகவலும் செயலும் ஒன்றையொன்று வடிவமைத்து முன்னெடுக்கும் ஒரு இயக்க உறவு வெளிப்படுகிறது. இதனை எளிமையாகப் பார்த்தால், தகவல் செயலின் தூண்டுதலாகவும், செயல் தகவலை உருவாக்குவதாகவும் ஒரு சுழற்சி உருவாகிறது. வரலாற்றில் இந்த கருத்து புதிதல்ல ஆனால் இதன் வேகம் மிகவும் புதிது. இதை மெய்யறிவு கொண்டு அணுகினால், அன்று டூரிங்கும் ஷன்னோனும் இயந்திரத்தின் அறிவைப் பற்றித் தொடங்கிய உரையாடல், இன்று மனிதனின் அறிவைப் பற்றிய தேடலாக விரிவடைகிறது.</p>
         </div>
-        
-        <div class="share-buttons" id="share-buttons" style="display: flex; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); justify-content: center; gap: 1rem; align-items: center;">
+
+        <div class="share-buttons" id="share-buttons"
+            style="display: flex; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); justify-content: center; gap: 1rem; align-items: center;">
             <span style="color: var(--text-secondary); font-weight: 500;">Share this post:</span>
-            <button onclick="sharePost()" style="background: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+            <button onclick="sharePost()"
+                style="background: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z">
+                    </path>
+                </svg>
                 Share
             </button>
-            <a id="share-twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.vishravars.me%2Fposts%2Fseyarkkai-arivu%2F&text=%E0%AE%9A%E0%AF%86%E0%AE%AF%E0%AE%B1%E0%AF%8D%E0%AE%95%E0%AF%88+%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AF%81" target="_blank" style="text-decoration: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
-                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            <a id="share-twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.vishravars.me%2Fposts%2Fseyarkkai-arivu%2F&text=%E0%AE%9A%E0%AF%86%E0%AE%AF%E0%AE%B1%E0%AF%8D%E0%AE%95%E0%AF%88+%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AF%81"
+                target="_blank"
+                style="text-decoration: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                    </path>
+                </svg>
                 Post
             </a>
-            <a id="share-whatsapp" href="https://wa.me/?text=%E0%AE%9A%E0%AF%86%E0%AE%AF%E0%AE%B1%E0%AF%8D%E0%AE%95%E0%AF%88+%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AF%81%20https%3A%2F%2Fwww.vishravars.me%2Fposts%2Fseyarkkai-arivu%2F" target="_blank" style="text-decoration: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
-                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+            <a id="share-whatsapp" href="https://wa.me/?text=%E0%AE%9A%E0%AF%86%E0%AE%AF%E0%AE%B1%E0%AF%8D%E0%AE%95%E0%AF%88+%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AF%81%20https%3A%2F%2Fwww.vishravars.me%2Fposts%2Fseyarkkai-arivu%2F" target="_blank"
+                style="text-decoration: none; border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 4px; color: var(--text-primary); font-family: var(--font-sans); display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s;">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z">
+                    </path>
+                </svg>
                 WhatsApp
             </a>
         </div>
     </main>
 
     <footer>
-        <p style="margin-bottom: 0.5rem;"><a href="mailto:vishravars@gmail.com" style="color: var(--text-secondary); text-decoration: none;">Contact: vishravars@gmail.com</a></p>
+        <p style="margin-bottom: 0.5rem;"><a href="mailto:vishravars@gmail.com"
+                style="color: var(--text-secondary); text-decoration: none;">Contact: vishravars@gmail.com</a></p>
         <p>&copy; 2026 Vishravars. All rights reserved.</p>
     </footer>
 
@@ -298,27 +389,7 @@
                 alert('Your browser does not support the native share feature.');
             }
         }
-        
-        // Progressive enhancement for Google Translate switchback
-        if (window.location.hostname.includes('translate.goog')) {
-            const translateLink = document.getElementById('translate-link');
-            if (translateLink) {
-                const originalUrl = new URL(window.location.href);
-                originalUrl.hostname = 'www.vishravars.me';
-                const cleanParams = new URLSearchParams(originalUrl.search);
-                for (const key of [...cleanParams.keys()]) {
-                    if (key.startsWith('_x_tr_')) cleanParams.delete(key);
-                }
-                originalUrl.search = cleanParams.toString();
-                
-                translateLink.href = originalUrl.toString();
-                translateLink.target = '_top';
-                translateLink.innerHTML = `
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
-                    View Original (Tamil)
-                `;
-            }
-        }
     </script>
 </body>
+
 </html>

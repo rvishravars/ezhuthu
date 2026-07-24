@@ -2,24 +2,29 @@
   {
     "id": "thekkutheevu-payanam-paagam-ondru",
     "title": "தெற்குத்தீவு பயணம் - பாகம் ஒன்று",
+    "title_en": "South Island Journey - Part One",
     "date": "July 23, 2026",
     "lang": "ta",
     "src": "Thekkutheevu_payanam_paagam_ondru.txt",
     "image": "map1.png",
-    "description": "நியூசிலாந்தில் கல்லூரி படிப்பை முடித்தவுடன் என் மகளுடன் தெற்குத்தீவு பயணம் - பாகம் ஒன்று."
+    "description": "நியூசிலாந்தில் கல்லூரி படிப்பை முடித்தவுடன் என் மகளுடன் தெற்குத்தீவு பயணம் - பாகம் ஒன்று.",
+    "description_en": "A journey to the South Island with my daughter after completing my college studies in New Zealand - Part One."
   },
   {
     "id": "marathadiyil-aasiriyar",
     "title": "மரத்தடியில் ஆசிரியர்",
+    "title_en": "The Teacher Under the Tree",
     "date": "July 10, 2026",
     "lang": "ta",
     "src": "marathadiyil_aasiriyar.txt",
     "image": "walnut.jpeg",
-    "description": "மரத்தடியில் ஆசிரியர் மற்றும் வால்நட் மரம் குறித்த ஒரு கட்டுரை."
+    "description": "மரத்தடியில் ஆசிரியர் மற்றும் வால்நட் மரம் குறித்த ஒரு கட்டுரை.",
+    "description_en": "An essay about a teacher under a tree and a walnut tree."
   },
   {
     "id": "seyarkkai-arivu",
     "title": "செயற்கை அறிவு",
+    "title_en": "Artificial Intelligence",
     "date": "July 6, 2026",
     "lang": "ta",
     "src": "seyarkkai_arivu.txt"
@@ -27,6 +32,7 @@
   {
     "id": "vilayattu",
     "title": "விளையாட்டு",
+    "title_en": "Game",
     "date": "July 1, 2026",
     "lang": "ta",
     "src": "vilayattu.txt"

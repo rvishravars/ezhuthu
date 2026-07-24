@@ -1,0 +1,25 @@
+Hello friends.
+
+For my college studies, I have been living with my family in Dunedin, in the southern part of New Zealand, for about a year and a half. Having completed college and waiting for graduation, I had time to sit at home and observe a few things through the window.
+
+For instance, vehicles parked at even intervals, Southeast Asian workers constantly setting up scaffolding for buildings, buildings constructed in various shapes, old-style antennas, trees, smoke billowing from chimneys, etc. These are the views I see sitting in my two-story house.
+
+Living on the 2nd floor, I can see up to the ocean appearing in the distance from a slightly elevated position. With binoculars, the scenes could script an entire movie. In this, vehicles, birds, and emergency helicopters are characters that participate more than humans. The Night and Day convenience store operates year-round at the end of my street. The grandmother sitting and smoking in front of it.
+
+Dunedin generally experiences low temperatures year-round. It is slightly warm in summer. Usually, New Zealand means the sky is gray. Conversely, in Dunedin, if the clouds clear, a blue sky with sunshine is guaranteed. Compared to neighboring towns, Dunedin's weather often appears quite different.
+
+Here, generally, one can find one or two trees in front of every house. A few months ago, one day, my college professor parked his car in front of our apartment and collected a dried thing lying on the ground into his bag. When I went to get my car, I saw him hurriedly taking it away in his bag. Before I could say 'Hi Mr. Jeremiah', he got into the car and left. Seeing the teacher near my house, the question about that tree and the nut he picked up didn't arise in my mind.
+
+Remembering Jeremiah today, I searched the internet a bit to see what tree it was. At first, it occurred to me to search using an artificial intelligence platform. The reason is that the tree had completely lost its leaves and stood as a bare tree. It looked like a Jain monk without clothes. I easily uploaded a photo of that tree to the AI platform. The AI could not confidently state the name of that tree. The AI, which accurately gauged the season, was unable to provide the name of the tree without leaves and flowers. It struggled just as one wouldn't be able to identify a Jain monk with clothes. Generally speaking, Turing's learning didn't seem possible for a tree without leaves and flowers. Even if it learned, it might lose its uniqueness in the list of the world's trees.
+
+I previously posted an essay on Artificial Intelligence - how information and action operate through a cycle https://www.vishravars.me/posts/seyarkkai-arivu/. That is a basic view. But I learned the methodology to bring that view into practice through the Information Retrieval I studied in college.
+
+In college, my artificial intelligence subject comprised four papers. A total of seven papers and a research thesis.
+
+The four papers can be divided as follows. Information Retrieval (1), Machine Learning (2), Statistical Business Intelligence (3), and Deep Neural Network (4). The mathematical theories behind these have evolved over centuries.
+
+In information retrieval, we can retrieve written or spoken information in a very short time, that is, in a few moments, using a query. Through this method, we can find the answer to a question from an already written document itself. For example, if we ask about texts touching upon the existence of God in the Hindu philosophical tradition, particularly the Buddhist tradition - the book Nyayakusumanjali written by Udayana or its fragments might be provided as the search result. The answer might be ordered and given as one or many. We can call this ordering itself artificial intelligence.
+
+In memory of my teacher, questions about the tree arose within me - to find the answer, one could ask someone the name of the tree - or alternatively, raise it as a query at the nearby botanical garden. Instead, praying from home - I handled a traditional search on the internet. Reaching the Dunedin Council's website through the internet search - there all the trees were named street-wise. In that, I discovered that the tree with our building number is an English walnut tree called Juglans regia. The walnuts that fall in winter are collected for their dense, earthy flavor, which enhances the taste of bakery items like pies and fudges.
+
+Because of the reason for the search, the effort, and the methodology, one can give shape to a query. Based on the query having these layers, the operational capability for the correct answer is generated. The four subjects I learned in college are also methodologies for operational capability. That is the lesson Jeremiah and the walnut tree gave that day.

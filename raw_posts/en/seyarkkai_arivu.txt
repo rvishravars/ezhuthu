@@ -1,0 +1,7 @@
+Pursuing postgraduate studies after a twenty-year gap, I feel as if the impact of artificial intelligence subjects chases me daily. As the term artificial intelligence is constantly brought up, can I look deeply within and create a meaning for it myself?
+
+In the modern era, Alan Turing provided a starting vision for artificial intelligence. He argued that if a machine's apparent actions and its reasoning ability are indistinguishable from human actions, then that machine would be considered functionally intelligent. This can be understood through his paper 'Computing Machinery and Intelligence'. This thought experiment of his took us from philosophy to execution.
+
+Around the same time, Claude Shannon presented his information theory. Its pillar is probability. This can also be taken as uncertainty. Shannon's most important definition is - information is the resolution of uncertainty. Shannon measured uncertainty using probability; Turing designed computational methods to resolve that uncertainty.
+
+Looking at the contributions of these two friends together, a dynamic relationship emerges where information and action mutually shape and drive each other forward. Simply put, a cycle is formed where information acts as the stimulus for action, and action creates information. Historically, this concept is not new, but its velocity is very new. Approaching this with philosophical insight, the conversation Turing and Shannon started back then about machine intelligence expands today into a quest about human intelligence.
