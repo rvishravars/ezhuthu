@@ -124,13 +124,40 @@
 
         /* Main Single-Column Content */
         main {
-            max-width: 960px;
+            width: 80%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             min-height: calc(100vh - 160px);
         }
 
+        .posts-scroll-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 2rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--border-color);
+        }
+
+        .posts-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .posts-scroll-container::-webkit-scrollbar-track {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        .posts-scroll-container::-webkit-scrollbar-thumb {
+            background-color: var(--accent-color);
+            border-radius: 4px;
+        }
+
         article {
+            flex: 0 0 350px;
+            display: flex;
+            flex-direction: column;
             background-color: var(--surface-color);
             padding: 2.5rem;
             border-radius: 12px;
@@ -254,6 +281,26 @@
                 font-size: 1.5rem;
             }
 
+            .nav-button {
+                background: var(--surface-color);
+                border: 1px solid var(--border-color);
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: var(--text-primary);
+                transition: background 0.2s, color 0.2s;
+            }
+
+            .nav-button:hover {
+                background: var(--accent-color);
+                color: #fff;
+                border-color: var(--accent-color);
+            }
+
             .article-content {
                 font-size: 0.95rem;
             }
@@ -288,13 +335,29 @@
     </header>
 
     <main>
-                <article>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">Recent Posts</h2>
+            <div style="display: flex; gap: 0.75rem;">
+                <button class="nav-button" id="scroll-left" aria-label="Scroll Left">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="nav-button" id="scroll-right" aria-label="Scroll Right">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="posts-scroll-container">
+                    <article>
                     <time class="article-meta">July 23, 2026</time>
                     <h2 class="article-title" lang="ta"><a href="/posts/thekkutheevu-payanam-paagam-ondru/">தெற்குத்தீவு பயணம் - பாகம் ஒன்று</a></h2>
                     <div class="article-content" lang="ta">
                         <p>நியூசிலாந்தில் கல்லூரி படிப்பை முடித்தவுடன் என் விசாவை புதுப்பிக்க விண்ணப்பித்தேன். என் மனைவியும் என் மகளும் இணைந்த ஒரே விண்ணப்பம். இந்த விசாவில் மூன்று ஆண்டுகள் இங்கே தங்கி வேலை பார்க்கலாம். இக்காலகட்டத்தில் நாங்கள் நீண்ட காலத் திட்டங்களையும் வகுக்க...</p>
                     </div>
-                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-top: auto;">
                         <a href="/posts/thekkutheevu-payanam-paagam-ondru/" class="read-more">Read article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
                         <a href="/posts/thekkutheevu-payanam-paagam-ondru/en/" class="translate-link">
                                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
@@ -308,7 +371,7 @@
                     <div class="article-content" lang="ta">
                         <p>வணக்கம் நண்பர்களே. கல்லூரி படிப்புக்காக நான் சுமார் ஒன்றரை வருடங்களாக நியூசிலாந்தின் தெற்குப் பகுதியில் உள்ள டுனிடினில் குடும்பத்துடன் வசித்து வருகிறேன். கல்லூரி முடிவடைந்து பட்டத்துக்காக காத்திருக்கும் எனக்கு சில விஷயங்களை வீட்டில் அமர்ந்தபடியே ஜன்ன...</p>
                     </div>
-                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-top: auto;">
                         <a href="/posts/marathadiyil-aasiriyar/" class="read-more">Read article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
                         <a href="/posts/marathadiyil-aasiriyar/en/" class="translate-link">
                                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
@@ -322,7 +385,7 @@
                     <div class="article-content" lang="ta">
                         <p>இருபது ஆண்டுகள் இடைவெளிக்குப் பின் முதுகலைக் கல்வி பயிலும் என்னை, செயற்கை நுண்ணறிவு பாடங்களின் தாக்கம் தினமும் துரத்துவது போல் உணர்கிறேன். விடாது செயற்கை அறிவு என குறிப்பிடுவதை நான் ஆழமாக உள்நோக்கி எனக்கென ஓர் அர்த்தத்தை உருவாக்கிக்கொள்ள முடியுமா? நவ...</p>
                     </div>
-                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-top: auto;">
                         <a href="/posts/seyarkkai-arivu/" class="read-more">Read article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
                         <a href="/posts/seyarkkai-arivu/en/" class="translate-link">
                                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
@@ -336,7 +399,7 @@
                     <div class="article-content" lang="ta">
                         <p>வணக்கம் நண்பர்களே இந்த என் எழுத்து என் நினைவலைகளையும் கனவுகளையும் ஒன்று சேர்த்து கோர்க்கும் முயற்சி. இதில் எனக்கு ஒரு வசதி. நான் நினைத்த வடிவத்தை கொடுக்கவும், என்னை துலைக்கவும், பின் எளிதாகத் திரும்பக் கொண்டுவரவும் உதவுகிறது. ஒரு உதாரணம் சொன்னால், ரி...</p>
                     </div>
-                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-top: auto;">
                         <a href="/posts/vilayattu/" class="read-more">Read article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
                         <a href="/posts/vilayattu/en/" class="translate-link">
                                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display: inline-block; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.006 1.896-.46 3.657-1.251 5.201M12.751 5a17.9 17.9 0 00-3.336-3M9 9a14.57 14.57 0 01-2.588-3M6 9h4.948"></path></svg>
@@ -344,6 +407,7 @@
                                     </a>
                     </div>
                 </article>
+        </div>
     </main>
 
     <footer>
@@ -351,6 +415,26 @@
                 style="color: var(--text-secondary); text-decoration: none;">Contact: vishravars@gmail.com</a></p>
         <p>&copy; 2026 Vishravars. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.posts-scroll-container');
+            const btnLeft = document.getElementById('scroll-left');
+            const btnRight = document.getElementById('scroll-right');
+
+            if(container && btnLeft && btnRight) {
+                const scrollAmount = 350 + 32; // article width + gap
+
+                btnLeft.addEventListener('click', () => {
+                    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                btnRight.addEventListener('click', () => {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

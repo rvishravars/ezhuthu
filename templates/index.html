@@ -114,13 +114,40 @@
 
         /* Main Single-Column Content */
         main {
-            max-width: 960px;
+            width: 80%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             min-height: calc(100vh - 160px);
         }
 
+        .posts-scroll-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 2rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--border-color);
+        }
+
+        .posts-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .posts-scroll-container::-webkit-scrollbar-track {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        .posts-scroll-container::-webkit-scrollbar-thumb {
+            background-color: var(--accent-color);
+            border-radius: 4px;
+        }
+
         article {
+            flex: 0 0 350px;
+            display: flex;
+            flex-direction: column;
             background-color: var(--surface-color);
             padding: 2.5rem;
             border-radius: 12px;
@@ -244,6 +271,26 @@
                 font-size: 1.5rem;
             }
 
+            .nav-button {
+                background: var(--surface-color);
+                border: 1px solid var(--border-color);
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: var(--text-primary);
+                transition: background 0.2s, color 0.2s;
+            }
+
+            .nav-button:hover {
+                background: var(--accent-color);
+                color: #fff;
+                border-color: var(--accent-color);
+            }
+
             .article-content {
                 font-size: 0.95rem;
             }
@@ -278,7 +325,24 @@
     </header>
 
     <main>
-        {{POSTS_LIST}}
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">Recent Posts</h2>
+            <div style="display: flex; gap: 0.75rem;">
+                <button class="nav-button" id="scroll-left" aria-label="Scroll Left">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="nav-button" id="scroll-right" aria-label="Scroll Right">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="posts-scroll-container">
+            {{POSTS_LIST}}
+        </div>
     </main>
 
     <footer>
@@ -286,6 +350,26 @@
                 style="color: var(--text-secondary); text-decoration: none;">Contact: vishravars@gmail.com</a></p>
         <p>&copy; 2026 Vishravars. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.posts-scroll-container');
+            const btnLeft = document.getElementById('scroll-left');
+            const btnRight = document.getElementById('scroll-right');
+
+            if(container && btnLeft && btnRight) {
+                const scrollAmount = 350 + 32; // article width + gap
+
+                btnLeft.addEventListener('click', () => {
+                    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                btnRight.addEventListener('click', () => {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

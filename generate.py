@@ -232,7 +232,7 @@ def main():
                     <div class="article-content" lang="{current_lang}">
                         <p>{preview_text}</p>
                     </div>
-                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-top: auto;">
                         <a href="/posts/{post_id}/" class="read-more">Read article <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
                         {index_translate_link_html}
                     </div>
