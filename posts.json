@@ -7,6 +7,7 @@
     "lang": "ta",
     "src": "Therkutheevu_payanam_paagam_moondru.txt",
     "image": "Christchurch.png",
+    "gallery": ["christchurch_hottub.png"],
     "description": "டிமருவிலிருந்து கிறிஸ்துசர்ச் வரை பயணம் மற்றும் நியூ பிரைட்டனில் உள்ள வீட்டில் அமைந்த வெப்ப நீச்சல் தொட்டி.",
     "description_en": "A journey from Timaru to Christchurch and the hot tub at our accommodation in New Brighton."
   },
@@ -29,6 +30,7 @@
     "lang": "ta",
     "src": "Thekkutheevu_payanam_paagam_ondru.txt",
     "image": "map1.png",
+    "gallery": ["wethree.jpeg", "pizza.jpg"],
     "description": "நியூசிலாந்தில் கல்லூரி படிப்பை முடித்தவுடன் என் மகளுடன் தெற்குத்தீவு பயணம் - பாகம் ஒன்று.",
     "description_en": "A journey to the South Island with my daughter after completing my college studies in New Zealand - Part One."
   },

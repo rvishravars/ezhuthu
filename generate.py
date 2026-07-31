@@ -109,6 +109,19 @@ def main():
                         p_formatted = linkify(p_formatted)
                         paragraphs.append(f"<p>{p_formatted}</p>")
             content_html = "".join(paragraphs)
+            
+            # Render gallery / end images if defined in posts.json
+            if post.get('gallery'):
+                gallery_imgs = post['gallery']
+                gallery_html = ""
+                if len(gallery_imgs) == 1:
+                    gallery_html = f'<div class="featured-image-container" style="text-align: center; margin-top: 2.5rem;"><img src="/images/{gallery_imgs[0]}" alt="Post Image" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"></div>'
+                elif len(gallery_imgs) == 2:
+                    gallery_html = f'''<div class="image-grid-2col" style="margin-top: 2.5rem;">
+    <img src="/images/{gallery_imgs[0]}" alt="Post Image 1">
+    <img src="/images/{gallery_imgs[1]}" alt="Post Image 2">
+</div>'''
+                content_html += gallery_html
 
             # Word count & reading time
             word_count = len(text_content.strip().split())
