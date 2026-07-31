@@ -1,5 +1,16 @@
 [
   {
+    "id": "therkutheevu-payanam-paagam-moondru",
+    "title": "தெற்குத்தீவு பயணம் - பாகம் மூன்று",
+    "title_en": "South Island Journey - Part Three",
+    "date": "July 31, 2026",
+    "lang": "ta",
+    "src": "Therkutheevu_payanam_paagam_moondru.txt",
+    "image": "Christchurch.png",
+    "description": "டிமருவிலிருந்து கிறிஸ்துசர்ச் வரை பயணம் மற்றும் நியூ பிரைட்டனில் உள்ள வீட்டில் அமைந்த வெப்ப நீச்சல் தொட்டி.",
+    "description_en": "A journey from Timaru to Christchurch and the hot tub at our accommodation in New Brighton."
+  },
+  {
     "id": "therkutheevu-payanam-paagam-erandu",
     "title": "தெற்குத்தீவு பயணம் - பாகம் இரண்டு",
     "title_en": "South Island Journey - Part Two",

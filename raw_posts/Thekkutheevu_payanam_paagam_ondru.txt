@@ -14,9 +14,9 @@
 
 ஓமாறு நெருங்கியபோது என் மகள் சாராவுக்கு ஃபோன் விளைவு பீட்சா ஆசையைத் தூண்டியது. 
 
-<div class="image-grid-2col">
+<p class="image-grid-2col">
     <img src="/images/wethree.jpeg" alt="We Three">
     <img src="/images/pizza.jpg" alt="Pizza">
-</div>
+</p>
 
 அடுத்த பாகம் விரைவில்.

@@ -14,9 +14,9 @@ Shortly after crossing Dunedin, the weather and temperature conditions changed, 
 
 As we approached Oamaru, the Foehn effect triggered a pizza craving in my daughter Sara.
 
-<div class="image-grid-2col">
+<p class="image-grid-2col">
     <img src="/images/wethree.jpeg" alt="We Three">
     <img src="/images/pizza.jpg" alt="Pizza">
-</div>
+</p>
 
 Next part coming soon.
