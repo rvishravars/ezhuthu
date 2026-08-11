@@ -107,6 +107,8 @@ def main():
                     else:
                         p_formatted = p_stripped.replace('\n', '<br>')
                         p_formatted = linkify(p_formatted)
+                        p_formatted = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', p_formatted)
+                        p_formatted = re.sub(r'\*(.*?)\*', r'<em>\1</em>', p_formatted)
                         paragraphs.append(f"<p>{p_formatted}</p>")
             content_html = "".join(paragraphs)
             
