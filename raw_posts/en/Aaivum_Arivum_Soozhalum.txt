@@ -1,0 +1,60 @@
+Hello friends.
+
+Recently at the Dunedin Tamil Society, I had the opportunity to get to know Kishore. He holds a Master's and a PhD in Physics from Bharathiar University. Not only does he work in the field of Data Science, but he is also interested in creating various science education lesson notes. He said he has been designing this to pass on this interest to his daughter. What he said reminded me of what my piano teacher, Chatterjee from Chennai, once said: "Parents are a child's first teachers" - a lesson he shared with me when I took my daughter to play the piano for him.
+
+So, what exactly is Kishore's daughter learning from her father?
+
+Recently, Kishore invited our family along with Ravi's family for dinner. Everyone was sitting on the floor in the living room talking—you could call it chatting. There were plenty of snacks. Ravi, his wife, daughter, and his parents visiting from India had arrived before us. Ravi was operating the television. Kishore and his wife, Darshana, were cooking. My wife, Priya, was talking about the responsibilities of the Tamil Society. I was sitting in the corner, enjoying the aroma. Poori and masala, chicken gravy, and coconut milk rice—I felt hungry that very second. Sara, Kishore's daughter Riya, and Ravi's daughter Lakshana went to another room and started playing. This kind of environment is quite common among Indians living abroad.
+
+After sharing thoughts on politics, cinema, and local news, I tasted the poori. Afterwards, Ravi's family left. Kishore and his wife finished their kitchen chores and sat down for a bit. I started asking Kishore about his science-related hobby. Kishore, who usually smiles like Tamil Nadu Chief Minister Vijay when talking about general things, showed a different face when it came to science. I saw his passion in it. He said he nurtures science education for his daughter through practical learning. A typical Western-style question arose in my mind—whether she is actually interested in this... but I controlled it. Because this is different.
+
+For example, a child learning music is nurtured with music by parents at home in the early stages. The same goes for setting up an environment for intellectual learning.
+
+Kishore enthusiastically brought Riya's science project board from her room and showed it to me. He explained that it was an analysis based on data about the Māori people. It featured analysis and visualization similar to the research I did during my Master's studies. The project board was a tri-fold board. Starting with an introduction, it clearly defined the research questions, followed by the analysis and a conclusion.
+
+Kishore described to me his future dreams related to electronics. As an effort towards that, he said he is teaching her about electricity generation, and plans to take his daughter to various power stations to show them to her directly.
+
+Just as the sound of the tanpura provides a kind of spiritual learning to a child growing up in a musical environment, a father's passion for science can provide an intellectual environment for his child.
+
+After this meeting, I didn't have much opportunity to talk to Kishore. But the lesson he gave remained safe with me. It was a lesson about establishing an intellectual environment within the family. A lesson that helps build a bridge of relationship between father and daughter through knowledge.
+
+Having learned about Riya's research, I was curious to know the methodology she followed. I shared the questions that arose in my mind with her via email and received answers from her. The following section is for your reading.
+
+**Qn: Can you introduce yourself?**
+Kia Ora, my name is Riya Rasika Kishor Kumar. I am a Year 10 student at Columba College in Dunedin, New Zealand. I enjoy learning about science and how it can be used to solve real-world problems. I am particularly interested in health and research because I find it fascinating how evidence and investigation can help improve people's lives.
+
+**Qn: Can you tell us about your hobbies/interests?**
+My hobbies include science research, badminton, dance, swimming, art and learning new things. I enjoy exploring topics related to health and biology. I also like setting personal goals and challenging myself to improve both academically and personally.
+
+**Qn: What motivates you to participate in science experiments?**
+I enjoy science experiments because they allow me to investigate questions and discover answers through evidence. I like the process of testing ideas, analysing results, and learning from mistakes. It is exciting to know that even a small study can contribute to a better understanding of a problem and potentially help others.
+
+**Qn: Can you share the experience of collaborating with your dad?**
+Working with my dad was one of the most valuable parts of this project. He supported me throughout the research process and helped me think more critically about the data we collected. One area where he particularly helped was coding in Python. He used Python to assist with data analysis and visualisation, and through this process I learned how coding can be used as a powerful tool in scientific research.
+
+Watching and discussing the code with him helped me better understand how data can be organised, analysed, and presented clearly. It also showed me how technology and science can work together to answer research questions. Beyond the technical aspects, my dad encouraged me to stay curious, ask questions, and keep improving the project. Working together taught me the importance of teamwork, problem-solving, and continuous learning.
+
+**Qn: At a high level can you give us an overview on how to conduct a study?**
+1. **Identify a Question or Problem**: Start by choosing a topic and developing a clear research question that you want to investigate.
+
+2. **Conduct Background Research**: Read books, articles, and reliable sources to understand what is already known about the topic.
+
+3. **Plan the Method**: Design a fair and reliable way to collect information or data that will help answer the research question.
+
+4. **Collect Data**: Carry out the study by gathering observations, measurements, survey responses, or other relevant data.
+
+5. **Analyse the Data**: Organise and examine the data to identify patterns, trends, or relationships.
+
+6. **Interpret the Results**: Consider what the findings mean and whether they answer the original research question.
+
+7. **Draw Conclusions**: Summarise the key findings and explain what was learned from the study.
+
+8. **Communicate the Findings**: Share the results through a report, presentation, poster, or publication so that others can learn from the research.
+
+Throughout all these steps, it is important to remain objective, use evidence to support conclusions, and be open to learning from both expected and unexpected results.
+
+**Qn: What are some of the pain points of doing a scientific study?**
+One challenge is collecting reliable data, especially when resources or time are limited. Another difficulty is dealing with unexpected results, which may require revising the method or repeating parts of the study. Research also requires patience because analysing information and drawing accurate conclusions can take a significant amount of time and effort.
+
+**Qn: If you would ask for support from the School or Government for research, what would that be?**
+I would appreciate greater access to research opportunities, mentorship programmes, and scientific resources for students. It would be helpful if schools could provide more opportunities for students to participate in research projects and connect with scientists and university researchers. Support for science fairs, competitions, and community-based research initiatives would also encourage more young people to explore science and innovation.

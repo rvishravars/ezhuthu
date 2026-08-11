@@ -1,5 +1,15 @@
 [
   {
+    "id": "aaivum-arivum-soozhalum",
+    "title": "ஆய்வும் அறிவும் சூழலும்",
+    "title_en": "Research, Knowledge, and Environment",
+    "date": "August 11, 2026",
+    "lang": "ta",
+    "src": "Aaivum_Arivum_Soozhalum.txt",
+    "description": "அறிவியல் மற்றும் தரவு பகுப்பாய்வு மூலம் குழந்தைகள் தங்கள் பெற்றோர்களிடமிருந்து கற்றுக்கொள்ளும் அறிவுசார் சூழல் பற்றிய கட்டுரை.",
+    "description_en": "An essay about the intellectual environment where children learn from their parents through science and data analysis."
+  },
+  {
     "id": "therkutheevu-payanam-paagam-moondru",
     "title": "தெற்குத்தீவு பயணம் - பாகம் மூன்று",
     "title_en": "South Island Journey - Part Three",
