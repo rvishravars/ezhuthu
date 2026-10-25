@@ -1,5 +1,15 @@
 [
   {
+    "id": "iyarkaiyin-naadagam",
+    "title": "இயற்கையின் நாடகம்",
+    "title_en": "The Drama of Nature",
+    "date": "October 26, 2026",
+    "lang": "ta",
+    "src": "iyarkaiyin_naadagam.txt",
+    "description": "வாழ்க்கை ஒரு நாடகம், அமைதி, காலை காப்பியின் மணம் மற்றும் இயற்கையின் தரிசனம் பற்றிய ஒரு கட்டுரை.",
+    "description_en": "An essay on life as a drama, stillness, the aroma of morning coffee, and witnessing the vision of nature."
+  },
+  {
     "id": "aaivum-arivum-soozhalum",
     "title": "ஆய்வும் அறிவும் சூழலும்",
     "title_en": "Research, Knowledge, and Environment",
